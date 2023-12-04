@@ -1,0 +1,159 @@
+﻿<Window x:Class="InfoPcTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:InfoPcTool.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowViewModel}"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        xmlns:local="clr-namespace:InfoPcTool"
+        Title="InfoPcTools" 
+        MinHeight="600"
+        MinWidth="500"
+        MaxHeight="800"
+        MaxWidth="800"
+        Height="600" 
+        Width="960"
+        Icon="favicon.ico">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Background="LightGray">
+
+            <Label   
+                Content="Info Pc Tool"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <ScrollViewer>
+
+                <StackPanel>
+                    <!-- Name Pc-->
+                    <Label Content="Name Pc:"></Label>
+                    <TextBlock x:Name="txtPcInfo" Margin="10" Foreground="Green" Text="{Binding NamePc}">
+                    </TextBlock>
+
+                    <!--Manufacture-->
+                    <Label Content="Manufacture:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding Manufacturer}">
+                    </TextBlock>
+
+                    <!--Model-->
+                    <Label Content="Model:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding Model}">
+                    </TextBlock>
+
+                    <!--Total Pysical Memory-->
+                    <Label Content="Total pysical memory:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding TotalPysicalMemory}">
+                    </TextBlock>
+
+                    <!--NumberOfProcessor-->
+                    <Label Content="Number of processor:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding NumberOfProcessor}">
+                    </TextBlock>
+
+                    <!--NameGpu-->
+                    <Label Content="Name gpu:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding NameGpu}">
+                    </TextBlock>
+
+                    <!--Ram-->
+                    <Label Content="Ram:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding Ram}">
+                    </TextBlock>
+
+                    <!--MemoryType-->
+                    <Label Content="Memory type:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding MemoryType}">
+                    </TextBlock>
+
+                    <!--SpeedMhz-->
+                    <Label Content="SpeedMhz:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding SpeedMhz}">
+                    </TextBlock>
+
+                    <!--NameProcessor-->
+                    <Label Content="Hersteller:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding NameProcessor}">
+                    </TextBlock>
+
+                    <!--CoreNumbers-->
+                    <Label Content="Core numbers:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding CoreNumbers}">
+                    </TextBlock>
+
+                    <!--LogicalProcessorNumber-->
+                    <Label Content="Logical processor number:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding LogicalProcessorNumber}">
+                    </TextBlock>
+
+                    <!--MaxClockSpeed-->
+                    <Label Content="Max clock speed:"></Label>
+                    <TextBlock Margin="10" TextTrimming="CharacterEllipsis" Foreground="Green" Text="{Binding MaxClockSpeed}">
+                    </TextBlock>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+
+
+        <Grid Grid.Row="1" 
+             Grid.Column="1">
+
+            <StackPanel>
+                <Label Content="Cpu Temperatur" FontSize="20" HorizontalAlignment="Center"></Label>
+                <TextBlock Margin="10"  FontSize="30" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" Text="{Binding CpuTemperatur}">
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Grid.Row="2" 
+              Grid.Column="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="a1"
+                    Content="Pdf" 
+                    Grid.Column="0" 
+                    Command="{Binding CreatePdfFileCommand}"/>
+
+            <Button x:Name="a2" 
+                    Content="Schließen"
+                    Grid.Column="1"
+                    Command="{Binding ClosedCommand}" 
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+
+        </Grid>
+    </Grid>
+</Window>

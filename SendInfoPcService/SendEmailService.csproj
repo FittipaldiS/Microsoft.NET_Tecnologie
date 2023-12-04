@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-SendEmailService-a6a3776f-b008-40e2-8b4b-673d2e4285b0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="log4net.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Excel\ConfigInfo.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="log4net.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Excel\ConfigInfo.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="log4net.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GemBox.Spreadsheet" Version="49.0.1423" />
+    <PackageReference Include="MailKit" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="System.Management" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InfoPc.Utils\InfoPc.Utils.csproj" />
+  </ItemGroup>
+</Project>
